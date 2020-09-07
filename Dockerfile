@@ -51,6 +51,8 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && node --version \
   && npm --version
 
+# skip cache trick
+ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 WORKDIR /packages
 RUN git clone https://github.com/opendatateam/udata.git \
     && cd udata && git checkout remove-theme \
